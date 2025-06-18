@@ -1,0 +1,40 @@
+package projects;
+import java.util.Scanner;
+public class incomeExpenses {
+    public static void main(String args[]){
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter name: ");
+        String name = scan.next();
+        int balance=0;
+        boolean option=true;
+        System.out.println("Hello " + name);
+        while(option){
+            System.out.print("Enter 1 for credit, 2 for deposit, 3 for balance, 4 for exit: " );
+            int choice = scan.nextInt();
+            switch (choice) {
+                case 1 -> {
+                System.out.print("Enter credit money: ");
+                int credit = scan.nextInt();
+                balance+=credit;
+                }
+                case 2 ->{
+                System.out.print("Enter deposit money: ");
+                int deposit = scan.nextInt();
+                if(deposit<balance){
+                    balance-=deposit;           
+                }   
+                else{
+                    System.out.println("Enter not enough money");
+                }
+                }
+                case 3 ->{
+                    System.out.println("balance: " + balance);
+                }
+                case 4 ->{
+                    option=false;
+                }
+            }
+        }
+        scan.close();
+    }
+}
